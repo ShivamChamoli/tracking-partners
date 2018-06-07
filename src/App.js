@@ -15,9 +15,9 @@ class App extends Component {
         "sections": "3",
         "partnerCount":"5",
         "categories": {
-          "1": "networks",
-          "2": "db",
-          "3": "security"
+          "1": "Networks",
+          "2": "Databases",
+          "3": "Security"
         },
         "partners": {
           "1": {

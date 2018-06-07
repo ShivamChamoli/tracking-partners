@@ -9,6 +9,7 @@ export default class Content extends React.Component {
     //filtering the correct partners for each type and then rendering the section
     createSections(){
         let sections = []
+        //filtering data based on type
         for (let i = 1; i <= parseInt(this.props.data.partnerDetails.sections,10); i++) {
             var filtered = [];
             for (let j = 1; j <= parseInt(this.props.data.partnerDetails.partnerCount,10); j++) {
