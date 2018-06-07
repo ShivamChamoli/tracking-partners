@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import '../css/Section.css';
 
 export default class Content extends React.Component {
     constructor(props) {
@@ -6,8 +7,11 @@ export default class Content extends React.Component {
     }
     render() {
         return (
-          <div>
-              {this.props.id}
+          <div className="partner-section">
+              <div className="partner-header"/>
+              <div className="partners">
+                {this.props.id}
+              </div>
           </div>
         );
     }
