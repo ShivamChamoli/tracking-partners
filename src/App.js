@@ -8,8 +8,42 @@ class App extends Component {
     super(props);
     //data required for the application
     //sections - partner types i.e. security, networks customer etc
+    //categories - types of partners
     //partners - partner details
-    this.data = {sections:3, partners: {}};
+    this.data = {
+      "partnerDetails": {
+        "sections": "3",
+        "partnerCount":"5",
+        "categories": {
+          "1": "networks",
+          "2": "db",
+          "3": "security"
+        },
+        "partners": {
+          "1": {
+            "name": "nuoDB",
+            "type": "2"
+          },
+          "2": {
+            "name": "sysdig",
+            "type": "3"
+          },
+          "3": {
+            "name": "aruba",
+            "type": "1"
+          },
+          "4": {
+            "name": "scyllaDB",
+            "type": "2"
+          },
+          "5": {
+            "name": "random",
+            "type": "2"
+          }
+        }
+      }
+    }
+    //this.data = {sections:3, partners:{}};
   }
   render() {
     return (

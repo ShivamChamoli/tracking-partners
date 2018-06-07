@@ -5,12 +5,13 @@ import { Row, Col } from 'react-bootstrap';
 export default class Content extends React.Component {
     constructor(props) {
         super(props);
+        console.log(this.props.data);
     }
     render() {
         return (
           <div className="partner-section">
               <Row className="partner-header">
-                        <Col xs={12} md={12}>hi</Col>
+                        <Col xs={12} md={12}>{this.props.type}</Col>
               </Row>
               <Row className="partners">
                         <Col xs={12} md={12}> {this.props.id} </Col>
