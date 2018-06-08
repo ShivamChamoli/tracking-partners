@@ -2,19 +2,15 @@ import React, { Component } from 'react';
 import '../css/Section.css';
 import { Row, Col } from 'react-bootstrap';
 import Image from './Image.js';
-//import logo from '../logo.svg';
-//import Popup from "reactjs-popup";
 
 export default class Content extends React.Component {
     constructor(props) {
         super(props);
-        console.log(this.props.data);
     }
     populateSection() {
         let rows = [];
         let numberOfItems = parseInt(this.props.data.length,10); 
         for(let i=0; i<numberOfItems; i++) {
-            let itemId = this.props.data[i].id;
             rows.push(<Image data={this.props.data[i]}/>)
         }
         return rows;

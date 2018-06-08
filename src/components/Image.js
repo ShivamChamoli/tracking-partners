@@ -3,7 +3,6 @@ import logo from '../logo.svg';
 import ReactDOM from 'react-dom';
 import ReactModal from 'react-modal';
 import { Row, Col } from 'react-bootstrap';
-//import '../css/Modal.css';
 
 ReactModal.defaultStyles.overlay.backgroundColor = 'gray';
 
@@ -18,15 +17,19 @@ export default class Image extends React.Component {
     this.handleCloseModal = this.handleCloseModal.bind(this);
   }
   
+  //opens modal
   handleOpenModal () {
     this.setState({ showModal: true });
   }
   
-  
+  //closes modal
   handleCloseModal () {
     this.setState({ showModal: false });
   }
   
+  //ReactModal in use
+  //You can edit anything inside the <ReactModal> tag for 
+  //the required html
   render () {
     return (
       <span>
