@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import '../css/Section.css';
 import { Row, Col } from 'react-bootstrap';
 import logo from '../logo.svg';
+import Popup from "reactjs-popup";
 
 export default class Content extends React.Component {
     constructor(props) {
@@ -13,7 +14,12 @@ export default class Content extends React.Component {
         let numberOfItems = parseInt(this.props.data.length,10); 
         for(let i=0; i<numberOfItems; i++) {
             let itemId = this.props.data[i].id;
-            rows.push(<img src={logo} id={itemId} alt="logo" className="partner-div"/>)
+            rows.push(//<img src={logo} id={itemId} alt="logo" className="partner-div">
+                    <Popup trigger={<img src={logo} id={itemId} alt="logo" className="partner-div" />} position="right center">
+                        <div>Popup content here !!</div>
+                    </Popup>
+                //</img>
+            )
         }
         return rows;
     }
