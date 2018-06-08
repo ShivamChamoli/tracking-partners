@@ -21,22 +21,27 @@ class App extends Component {
         },
         "partners": {
           "1": {
+            "id": "1",
             "name": "nuoDB",
             "type": "2"
           },
           "2": {
+            "id": "2",
             "name": "sysdig",
             "type": "3"
           },
           "3": {
+            "id": "3",
             "name": "aruba",
             "type": "1"
           },
           "4": {
+            "id": "4",
             "name": "scyllaDB",
             "type": "2"
           },
           "5": {
+            "id": "5",
             "name": "random",
             "type": "2"
           }

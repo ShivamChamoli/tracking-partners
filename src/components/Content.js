@@ -14,12 +14,14 @@ export default class Content extends React.Component {
             var filtered = [];
             for (let j = 1; j <= parseInt(this.props.data.partnerDetails.partnerCount,10); j++) {
                 if (parseInt(this.props.data.partnerDetails.partners[j].type,10) === i) {
-                    filtered.push(this.props.data.partnerDetails.partners[j].name);
+                    let partnersDetails = {"id":this.props.data.partnerDetails.partners[j].id,
+                                            "name":this.props.data.partnerDetails.partners[j].name};
+                    filtered.push(partnersDetails);
                 }
             }
             let sectionId = 'section-'+i;
             //creating the sections for different types of partners
-            sections.push(<Section id={sectionId} key={sectionId} data={filtered} type={this.props.data.partnerDetails.categories[i]}/>);
+            sections.push(<Section key={this.props.data.partnerDetails.categories[i]} id={sectionId} key={sectionId} data={filtered} type={this.props.data.partnerDetails.categories[i]}/>);
         }
         return sections;
     }
