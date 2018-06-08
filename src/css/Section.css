@@ -1,11 +1,12 @@
 .partner-section{
     min-height: 200px;
     width: 100%;
+    margin-left: 15px;
 }
 .partner-header{
     height: 40px;
     width: 100%;
-    background-color: lightgray;
+    background-color: #ddd;
     padding-left: 10px;
     padding-top: 10px;
 }
