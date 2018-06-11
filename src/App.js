@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Content from './components/Content.js';
+import { Row, Col } from 'react-bootstrap';
+import Sidemenu from './components/Sidemenu.js';
 
 class App extends Component {
   constructor(props) {
@@ -48,7 +50,26 @@ class App extends Component {
         }
       }
     }
-    //this.data = {sections:3, partners:{}};
+
+    this.items = [
+      {divider: true, label: 'Main navigation', value: 'main-nav'},
+      {label: 'item 1', value: 'item1', icon: 'fa-search',
+      children: [
+        {label: 'item 1.1', value: 'item1.1', icon: 'fa-snapchat',
+        children: [
+          {label: 'item 1.1.1', value: 'item1.1.1', icon: 'fa-anchor'},
+          {label: 'item 1.1.2', value: 'item1.1.2', icon: 'fa-bar-chart'}]},
+        {label: 'item 1.2', value: 'item1.2'}]},
+      {label: 'item 2', value: 'item2', icon: 'fa-automobile',
+      children: [
+        {label: 'item 2.1', value: 'item2.1',
+        children: [
+          {label: 'item 2.1.1', value: 'item2.1.1'},
+          {label: 'item 2.1.2', value: 'item2.1.2'}]},
+        {label: 'item 2.2', value: 'item2.2'}]},
+      {divider: true, label: 'Motors', value: 'motors-nav'},
+      {label: 'item 3', value: 'item3', icon: 'fa-beer'}
+    ];
   }
   render() {
     return (
@@ -60,7 +81,8 @@ class App extends Component {
         </header>
           {/*App body that contains Content which contains the sections*/}
           <div className="App-body">
-            <Content data={this.data} />
+              <div className="sidemenu"><Sidemenu items={this.items}/></div>
+              <div className="main-content"><Content data={this.data} /></div> 
           </div>
       </div>
     );

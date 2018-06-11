@@ -1,7 +1,7 @@
 .partner-section{
     min-height: 200px;
     width: 100%;
-    margin-left: 15px;
+    /*margin-left: -2%;*/
 }
 .partner-header{
     height: 40px;
@@ -20,6 +20,7 @@
     border: 1px solid;
     padding: 10px;
     box-shadow: 5px 10px #888888;
+    background-color: white;
 }
 .hidden{
     display: hidden;

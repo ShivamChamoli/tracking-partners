@@ -11,6 +11,7 @@ export default class Content extends React.Component {
         let rows = [];
         let numberOfItems = parseInt(this.props.data.length,10); 
         for(let i=0; i<numberOfItems; i++) {
+            //creates the image + popup for that image
             rows.push(<Image data={this.props.data[i]}/>)
         }
         return rows;

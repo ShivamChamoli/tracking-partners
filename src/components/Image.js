@@ -7,8 +7,8 @@ import { Row, Col } from 'react-bootstrap';
 ReactModal.defaultStyles.overlay.backgroundColor = 'gray';
 
 export default class Image extends React.Component {
-  constructor () {
-    super();
+  constructor (props) {
+    super(props);
     this.state = {
       showModal: false
     };

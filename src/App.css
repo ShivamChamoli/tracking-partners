@@ -23,7 +23,24 @@
   font-size: large;
 }
 
+.App-body {
+  background-color: #eee;
+}
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+.sidemenu {
+  width:25%;
+  height:100%;
+  display: inline-block;
+  float:left;
+}
+
+.main-content{
+  width:75%;
+  height:100%;
+  display:inline-block;
 }
