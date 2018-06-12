@@ -2,6 +2,9 @@ import React from 'react';
 import logo from '../logo.svg';
 import ReactModal from 'react-modal';
 import { Row, Col } from 'react-bootstrap';
+import ModalLeftSide from './ModalLeftSide.js';
+import ModalRightSide from './ModalRightSide.js';
+import '../css/Image.css';
 
 ReactModal.defaultStyles.overlay.backgroundColor = 'gray';
 
@@ -43,14 +46,14 @@ export default class Image extends React.Component {
             contentLabel="Red Hat tracking partners"
             onRequestClose={this.handleCloseModal}
           >
-            <Row >
-                        <Col xs={1} md={4} lg={4}><img src={logo} alt="logo" /></Col>
-                        <Col xs={1} md={8} lg={8}>{this.props.data.name}</Col> 
-            </Row>
-            <Row >
-                        <Col xs={1} md={4} lg={4}>Badges</Col>
-                        <Col xs={1} md={8} lg={8}>{this.props.data.name}</Col> 
-            </Row>
+            {/*Will contain the image and badges*/}
+            <span className="modal-left-side">
+              <ModalLeftSide />
+            </span>
+            {/*Will contain the data and support for new comments*/}
+            <span className="modal-right-side">
+              <ModalRightSide name={this.props.data.name}/>
+            </span>
           </ReactModal>
       </span>
     );
