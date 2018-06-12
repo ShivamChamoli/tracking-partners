@@ -1,6 +1,5 @@
-import React, { Component } from 'react';
+import React from 'react';
 import logo from '../logo.svg';
-import ReactDOM from 'react-dom';
 import ReactModal from 'react-modal';
 import { Row, Col } from 'react-bootstrap';
 
@@ -27,12 +26,17 @@ export default class Image extends React.Component {
     this.setState({ showModal: false });
   }
   
+  //ReactModal was trying to attach before the body was loaded
+  componentWillMount() {
+    ReactModal.setAppElement('body');
+  }
+
   //ReactModal in use
   //You can edit anything inside the <ReactModal> tag for 
   //the required html
   render () {
     return (
-      <span>
+      <span key={this.props.data.id}>
         <img src={logo} onClick={this.handleOpenModal} id={this.props.data.id} alt="logo" className="partner-div" />
           <ReactModal
             isOpen={this.state.showModal}

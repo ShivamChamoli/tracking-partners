@@ -1,27 +1,43 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Section from './Section.js';
 
 export default class Content extends React.Component {
     constructor(props) {
         super(props);
+        this.state = {filters:this.props.filters};
     }
-    //Render does not like for loops so we are creating sections 
+
+    //Render does not like for loops so we are creating sections. 
     //filtering the correct partners for each type and then rendering the section
-    createSections(){
+    createSections(event){
+        var keysSorted;
+        var categories = this.props.data.partnerDetails.categories;
+        //we will need to think of something for filters. Make shift for now
+        if(this.props.filters.indexOf('Alphabetically (a-z)')!==-1)
+        {
+            keysSorted  = Object.keys(categories).sort(function(a,b)
+            {
+                return (categories[a] < categories[b]) ? -1 : (categories[a] > categories[b]) ? 1 : 0;
+            });
+        }
+        else
+        {
+            keysSorted = Object.keys(categories);
+        }
         let sections = []
         //filtering data based on type
-        for (let i = 1; i <= parseInt(this.props.data.partnerDetails.sections,10); i++) {
+        for (let i = 0; i < parseInt(this.props.data.partnerDetails.sections,10); i++) {
             var filtered = [];
             for (let j = 1; j <= parseInt(this.props.data.partnerDetails.partnerCount,10); j++) {
-                if (parseInt(this.props.data.partnerDetails.partners[j].type,10) === i) {
+                if (parseInt(this.props.data.partnerDetails.partners[j].type,10) === parseInt(keysSorted[i],10)) {
                     let partnersDetails = {"id":this.props.data.partnerDetails.partners[j].id,
                                             "name":this.props.data.partnerDetails.partners[j].name};
                     filtered.push(partnersDetails);
                 }
             }
-            let sectionId = 'section-'+i;
+            let sectionId = 'section-'+keysSorted[i];
             //creating the sections for different types of partners
-            sections.push(<Section key={this.props.data.partnerDetails.categories[i]} id={sectionId} key={sectionId} data={filtered} type={this.props.data.partnerDetails.categories[i]}/>);
+            sections.push(<Section key={this.props.data.partnerDetails.categories[keysSorted[i]]} id={sectionId} data={filtered} type={this.props.data.partnerDetails.categories[keysSorted[i]]}/>);
         }
         return sections;
     }

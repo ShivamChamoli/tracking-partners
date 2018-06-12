@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Content from './components/Content.js';
-import { Row, Col } from 'react-bootstrap';
 import Sidemenu from './components/Sidemenu.js';
 
 class App extends Component {
   constructor(props) {
     super(props);
+    this.state = {filters:[]};
     //data required for the application
     //sections - partner types i.e. security, networks customer etc
     //categories - types of partners
@@ -17,40 +17,42 @@ class App extends Component {
         "sections": "3",
         "partnerCount":"5",
         "categories": {
-          "1": "Networks",
-          "2": "Databases",
-          "3": "Security"
+          "0": "Networks",
+          "1": "Databases",
+          "2": "Security"
         },
         "partners": {
           "1": {
-            "id": "1",
+            "id": "0",
             "name": "nuoDB",
-            "type": "2"
-          },
-          "2": {
-            "id": "2",
-            "name": "sysdig",
-            "type": "3"
-          },
-          "3": {
-            "id": "3",
-            "name": "aruba",
             "type": "1"
           },
-          "4": {
-            "id": "4",
-            "name": "scyllaDB",
+          "2": {
+            "id": "1",
+            "name": "sysdig",
             "type": "2"
           },
+          "3": {
+            "id": "2",
+            "name": "aruba",
+            "type": "0"
+          },
+          "4": {
+            "id": "3",
+            "name": "scyllaDB",
+            "type": "1"
+          },
           "5": {
-            "id": "5",
+            "id": "4",
             "name": "random",
-            "type": "2"
+            "type": "1"
           }
         }
       }
     }
 
+    //Items needed for side menu
+    //need more research to clean this
     this.items = [
       {divider: true, label: 'Main navigation', value: 'main-nav'},
       {label: 'item 1', value: 'item1', icon: 'fa-search',
@@ -71,6 +73,13 @@ class App extends Component {
       {label: 'item 3', value: 'item3', icon: 'fa-beer'}
     ];
   }
+
+  //when state changes, render is called automatically 
+  //here we can set dynamic values for the data required
+  onChildChanged(newFilters) {
+    this.setState({ filters: newFilters });
+  }
+
   render() {
     return (
       <div className="App">
@@ -81,8 +90,13 @@ class App extends Component {
         </header>
           {/*App body that contains Content which contains the sections*/}
           <div className="App-body">
-              <div className="sidemenu"><Sidemenu items={this.items}/></div>
-              <div className="main-content"><Content data={this.data} /></div> 
+              {/*we will send filters and sorts for both elements
+                 Sidemenu requires items to setup the menu and the callback to
+                 let the main app know filters or sorts have changed
+                 so that main content can be re-rendered.
+                 data for content is all the info about partners*/}
+              <div className="sidemenu"><Sidemenu items={this.items} filters={this.state.filters} callbackParent= {this.onChildChanged.bind(this)}/></div>
+              <div className="main-content"><Content data={this.data} filters={this.state.filters} /></div> 
           </div>
       </div>
     );
