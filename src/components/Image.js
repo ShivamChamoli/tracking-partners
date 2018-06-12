@@ -40,7 +40,7 @@ export default class Image extends React.Component {
         <img src={logo} onClick={this.handleOpenModal} id={this.props.data.id} alt="logo" className="partner-div" />
           <ReactModal
             isOpen={this.state.showModal}
-            contentLabel="Modal #1 Global Style Override Example"
+            contentLabel="Red Hat tracking partners"
             onRequestClose={this.handleCloseModal}
           >
             <Row >

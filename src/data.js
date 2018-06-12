@@ -2,7 +2,7 @@ window.App = {
     globalPartnersData : {
         "partnerDetails": {
             "sections": "3",
-            "partnerCount":"5",
+            "partnerCount":"9",
             "categories": {
                 "0": "Networks",
                 "1": "Databases",
@@ -33,6 +33,26 @@ window.App = {
                 "id": "4",
                 "name": "random",
                 "type": "1"
+                },
+                "6": {
+                    "id": "5",
+                    "name": "Avi Networks",
+                    "type": "0"
+                },
+                "7": {
+                    "id": "6",
+                    "name": "HAProxy",
+                    "type": "0"
+                },
+                "8": {
+                    "id": "5",
+                    "name": "DB",
+                    "type": "1"
+                },
+                "9": {
+                    "id": "5",
+                    "name": "aqua",
+                    "type": "2"
                 }
             }
         }
