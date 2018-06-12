@@ -34,9 +34,29 @@ export default class Sidemenu extends React.Component {
                 <NavText><div onClick={this.addFilters}> Alphabetically (a-z) </div></NavText>
                 </Nav>
               </Nav>
-              <Nav id='sales'>
+              <Nav id='filters'>
                 <NavIcon><SvgIcon size={20} icon={ic_business}/></NavIcon>
-                <NavText> Sales </NavText>
+                <NavText> Filters </NavText>
+              </Nav>
+              <Nav id='random-1'>
+                <NavIcon><SvgIcon size={20} icon={ic_business}/></NavIcon>
+                <NavText> random-1 </NavText>
+              </Nav>
+              <Nav id='random-2'>
+                <NavIcon><SvgIcon size={20} icon={ic_business}/></NavIcon>
+                <NavText> random-2 </NavText>
+              </Nav>
+              <Nav id='random-3'>
+                <NavIcon><SvgIcon size={20} icon={ic_business}/></NavIcon>
+                <NavText> random-3 </NavText>
+              </Nav>
+              <Nav id='random-4'>
+                <NavIcon><SvgIcon size={20} icon={ic_business}/></NavIcon>
+                <NavText> random-4 </NavText>
+              </Nav>
+              <Nav id='random-5'>
+                <NavIcon><SvgIcon size={20} icon={ic_business}/></NavIcon>
+                <NavText> random-5 </NavText>
               </Nav>
           </SideNav>
         </div>

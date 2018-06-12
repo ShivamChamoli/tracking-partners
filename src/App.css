@@ -37,10 +37,12 @@
   height:100%;
   display: inline-block;
   float:left;
+  margin-left: 2%;
 }
 
 .main-content{
-  width:75%;
+  margin-left: -3%;
+  width:76%;
   height:100%;
   display:inline-block;
 }
