@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import Content from './components/Content.js';
 import Sidemenu from './components/Sidemenu.js';
+import Data from './data.js';
 
 class App extends Component {
   constructor(props) {
@@ -12,66 +13,12 @@ class App extends Component {
     //sections - partner types i.e. security, networks customer etc
     //categories - types of partners
     //partners - partner details
-    this.data = {
-      "partnerDetails": {
-        "sections": "3",
-        "partnerCount":"5",
-        "categories": {
-          "0": "Networks",
-          "1": "Databases",
-          "2": "Security"
-        },
-        "partners": {
-          "1": {
-            "id": "0",
-            "name": "nuoDB",
-            "type": "1"
-          },
-          "2": {
-            "id": "1",
-            "name": "sysdig",
-            "type": "2"
-          },
-          "3": {
-            "id": "2",
-            "name": "aruba",
-            "type": "0"
-          },
-          "4": {
-            "id": "3",
-            "name": "scyllaDB",
-            "type": "1"
-          },
-          "5": {
-            "id": "4",
-            "name": "random",
-            "type": "1"
-          }
-        }
-      }
-    }
+    //check data.js for these two global variables
+    this.data = window.App.globalPartnersData;
 
     //Items needed for side menu
     //need more research to clean this
-    this.items = [
-      {divider: true, label: 'Main navigation', value: 'main-nav'},
-      {label: 'item 1', value: 'item1', icon: 'fa-search',
-      children: [
-        {label: 'item 1.1', value: 'item1.1', icon: 'fa-snapchat',
-        children: [
-          {label: 'item 1.1.1', value: 'item1.1.1', icon: 'fa-anchor'},
-          {label: 'item 1.1.2', value: 'item1.1.2', icon: 'fa-bar-chart'}]},
-        {label: 'item 1.2', value: 'item1.2'}]},
-      {label: 'item 2', value: 'item2', icon: 'fa-automobile',
-      children: [
-        {label: 'item 2.1', value: 'item2.1',
-        children: [
-          {label: 'item 2.1.1', value: 'item2.1.1'},
-          {label: 'item 2.1.2', value: 'item2.1.2'}]},
-        {label: 'item 2.2', value: 'item2.2'}]},
-      {divider: true, label: 'Motors', value: 'motors-nav'},
-      {label: 'item 3', value: 'item3', icon: 'fa-beer'}
-    ];
+    this.items = window.App.globalSidemenuItems;
   }
 
   //when state changes, render is called automatically 
