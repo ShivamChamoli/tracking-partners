@@ -21,6 +21,20 @@ class App extends Component {
     this.items = window.App.globalSidemenuItems;
   }
 
+  componentWillMount() {
+    var request = new Request("http://127.0.0.1:8000/partners/");
+
+        fetch(request).then(function(response) {
+        // Convert to JSON
+            return response.json();
+        }).then(function(j) {
+            // Yay, `j` is a JavaScript object
+            console.log(JSON.stringify(j)); 
+        }).catch(function(error) {  
+            console.log('Request failed', error)  
+        });
+  }
+
   //when state changes, render is called automatically 
   //here we can set dynamic values for the data required
   onChildChanged(newFilters) {
